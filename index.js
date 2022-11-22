@@ -31,6 +31,8 @@ const sensors = [
     { id: 6, name:'扭矩传感器'},
 ]
 
+app.locals.sensors =sensors
+
 app.get('/api/sensors', (req,res)=>{
     res.send(sensors)
 })

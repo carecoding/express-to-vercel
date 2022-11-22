@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const path = require('path');
+// const path = require('path');
 
 
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
 //***以下设置用于跨域，否则无法访问***/
 app.all('*', function (req, res, next) {
@@ -14,9 +14,9 @@ app.all('*', function (req, res, next) {
     req.method == "OPTIONS" ? res.send(200) : next()
   });
 
-app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
-})
+// app.get('/', (req, res) => {
+//     res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+// })
 
 app.get('/api/', (req,res) => {
     res.send('Hello vercel from node express.');
@@ -31,7 +31,7 @@ const sensors = [
     { id: 6, name:'扭矩传感器'},
 ]
 
-app.locals.sensors =sensors
+// app.locals.sensors =sensors
 
 app.get('/api/sensors', (req,res)=>{
     res.send(sensors)
